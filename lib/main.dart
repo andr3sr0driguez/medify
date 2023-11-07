@@ -22,7 +22,8 @@ class Medify extends StatelessWidget {
       child: GetMaterialApp(
         theme: ThemeData(useMaterial3: true, brightness: Brightness.dark),
         routes: Routes.routes,
-        initialRoute: pref.islogin? Home.routeName : LoginView.routeName ,
+        // initialRoute: pref.islogin? Home.routeName : LoginView.routeName ,
+        initialRoute: Home.routeName  ,
         debugShowCheckedModeBanner: false,
       ),
     );
