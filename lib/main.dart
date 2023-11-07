@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:medify/routes/routes_app.dart';
 import 'package:medify/src/Provider/PeticionesHttpProvider.dart';
 import 'package:medify/src/Provider/PreferenciasUsuario.dart';
+import 'package:medify/view/home_view.dart';
 import 'package:medify/view/login_view.dart';
 import 'package:oktoast/oktoast.dart';
 
@@ -21,7 +22,7 @@ class Medify extends StatelessWidget {
       child: GetMaterialApp(
         theme: ThemeData(useMaterial3: true, brightness: Brightness.dark),
         routes: Routes.routes,
-        initialRoute: LoginView.routeName,
+        initialRoute: pref.islogin? Home.routeName : LoginView.routeName ,
         debugShowCheckedModeBanner: false,
       ),
     );

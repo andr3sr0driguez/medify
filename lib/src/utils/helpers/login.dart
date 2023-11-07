@@ -32,9 +32,8 @@ load(context!);
 
       pref.my_id =  user["id"].toString();
       pref.photo_profile = user["photo_profile_url"];
-      
-      print(pref.photo_profile);
-
+      pref.name= user["nombre"];
+      pref.islogin = true;
       navigatorToHome();
     }else{
        floadMessage(mensaje: resp["data"]["error"]);
@@ -46,7 +45,7 @@ load(context!);
 
   void navigatorToHome() {
     Get.back();
-    Navigator.pushNamed(contex, Home.routeName);
+    Navigator.pushReplacementNamed(contex, Home.routeName);
   }
 
 

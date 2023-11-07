@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medify/src/utils/UI/widget/CustomTextForm/custom_form_field.dart';
 import 'package:medify/src/utils/helpers/login.dart';
 import 'package:medify/widget/button_box.dart';
 import 'package:medify/widget/input_text_form.dart';
@@ -21,6 +22,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: Colors.black,
             body: bodyLogin(context),
            
           );
@@ -84,19 +86,18 @@ class _LoginViewState extends State<LoginView> {
           Image.asset(
             'assets/logo_medify.png',
             // height: size.height * 0.5,
-            width: 250,
+            width: 200,
           ),
           const SizedBox(
-            height: 100,
+            height: 80,
           ),
-          InputTextForm(placeholder: 'Correo', textController: correoController),
-          InputTextForm(
-              placeholder: 'Contraseña',
-              encryptation: true,
-              textController: contrasenaController),
+          CustomFormField(textController: correoController,hintext: 'Tu correo',lavelText: 'Correo',icon: Icon(Icons.alternate_email_outlined)),
+          CustomFormField(textController: contrasenaController,hintext: 'Tu contraseña',lavelText: 'Contraseña',icon: Icon(Icons.password_outlined),obscureText: true,),
+
+         
           row,
           const SizedBox(
-            height: 50,
+            height: 20,
           ),
           CustomButton(
             textButton: 'Iniciar sesion',
@@ -110,7 +111,7 @@ class _LoginViewState extends State<LoginView> {
             },
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 50),
+            padding: const EdgeInsets.symmetric(vertical: 20),
             child: InkWell(
               onTap: () {
                 Navigator.pushNamed(context, 'register');
